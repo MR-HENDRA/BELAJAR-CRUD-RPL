@@ -16,7 +16,9 @@
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)) :
     ?>
-        <form method="POST" action="#">
+        <form method="POST" action="update.php">
+            <input type="hidden" name="id" value="<?php echo $row['id']; ?>">
+            <!-- Type Hidden, agar ID tidak terlihat -->
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" value="<?php echo $row['name']; ?>" required>
             <br><br>
@@ -38,11 +40,12 @@
     <!-- CEK DATA -->
     <?php
     if (isset($_POST["submit"])) {
+        $id_1 = $_POST["id"];
         $name = $_POST["name"];
         $email = $_POST["email"];
         $password = $_POST["password"];
 
-        $sql = "UPDATE form_tb SET name = '$name', email = '$email', password = '$password' WHERE id = '$id'";
+        $sql = "UPDATE form_tb SET name = '$name', email = '$email', password = '$password' WHERE id = '$id_1'";
         if (mysqli_query($conn, $sql)) {
             echo "<br>";
             echo "--- Success Update Data! ---";
