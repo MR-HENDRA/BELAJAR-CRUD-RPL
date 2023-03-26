@@ -7,11 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <style>
+        #div-utama {
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+    </style>
     <title>Form Insert</title>
 </head>
 
 <body>
-    <div class="container pt-4 px-4 border border-1 mt-3 mb-3">
+    <div class="container pt-4 px-4 border border-1 mt-3 mb-3" id="div-utama">
         <form method="POST" action="insert.php">
             <div class="mb-3">
                 <label for="exampleFormControlInput1" class="form-label">Name:</label>
@@ -41,7 +47,8 @@
         $sql = "INSERT INTO form_tb (name, email, password) VALUES ('$name', '$email', '$password')";
         if (mysqli_query($conn, $sql)) {
             echo "<br>";
-            echo "--- Success Insert Data! ---";
+            // echo "--- Success Insert Data! ---";
+            echo "<script>alert('Success Insert Data!');</script>";
             echo "<script>window.location='index.php';</script>";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);

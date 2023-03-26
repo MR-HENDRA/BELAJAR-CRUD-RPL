@@ -7,6 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-aFq/bzH65dt+w6FI2ooMVUpc+21e0SRygnTpmBvdBgSdnuTN7QbdgL+OapgHtvPp" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha2/dist/js/bootstrap.bundle.min.js" integrity="sha384-qKXV1j0HvMUeCBQ+QVp7JcfGl760yU08IQ+GpUo5hlbpg51QRiuqHAJz8+BrxE/N" crossorigin="anonymous"></script>
+    <style>
+        #div-utama {
+            box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+    </style>
     <title>Update</title>
 </head>
 
@@ -18,7 +24,8 @@
     $result = mysqli_query($conn, $sql);
     while ($row = mysqli_fetch_assoc($result)) :
     ?>
-        <div class="container pt-4 px-4 border border-1 mt-3 mb-3">
+        <div class="container pt-4 px-4 border border-1 mt-3 mb-3" id="div-utama">
+            <h5 style="text-align: center;" class="text-primary">UPDATE DATA</h5>
             <form method="POST" action="#">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Name:</label>
@@ -51,7 +58,8 @@
         $sql = "UPDATE form_tb SET name = '$name', email = '$email', password = '$password' WHERE id = '$id'";
         if (mysqli_query($conn, $sql)) {
             echo "<br>";
-            echo "--- Success Update Data! ---";
+            // echo "--- Success Update Data! ---";
+            echo "<script>alert('Success Update Data!');</script>";
             echo "<script>window.location='index.php';</script>";
         } else {
             echo "Error: " . $sql . "<br>" . mysqli_error($conn);
