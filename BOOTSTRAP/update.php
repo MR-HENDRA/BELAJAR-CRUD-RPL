@@ -12,6 +12,15 @@
             box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
         }
+
+        h5 {
+
+            font-weight: bold;
+            text-align: center;
+            color: #0055ff;
+            text-decoration: underline;
+
+        }
     </style>
     <title>Update</title>
 </head>
@@ -25,7 +34,7 @@
     while ($row = mysqli_fetch_assoc($result)) :
     ?>
         <div class="container pt-4 px-4 border border-1 mt-3 mb-3" id="div-utama">
-            <h5 style="text-align: center;" class="text-primary">UPDATE DATA</h5>
+            <h5>UPDATE DATA</h5>
             <form method="POST" action="#">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Name:</label>
@@ -40,7 +49,7 @@
                     <input type="password" class="form-control" id="password" name="password" value="<?php echo $row['password']; ?>" required>
                 </div>
                 <div class="mb-3">
-                    <button type="submit" class="btn btn-primary" name="submit">Submit</button>
+                    <button type="submit" class="btn" style="background-color: #0055ff; color:#ffffff" name="submit">Submit</button>
                 </div>
             </form>
         </div>

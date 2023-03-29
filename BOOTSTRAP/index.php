@@ -13,22 +13,31 @@
             box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
             border-radius: 10px;
         }
+
+        h5 {
+            font-weight: bold;
+            text-align: center;
+            color: #0055ff;
+            text-decoration: underline;
+        }
     </style>
     <title>Index Form</title>
 </head>
 
 <body>
     <div class="container pt-4 px-4 border border-1 mt-3 mb-3" id="div-utama">
-        <table class="table table-bordered border-primary">
-            <h5 style="text-align: center" class="text-primary">DATA USER</h5>
-            <a href=" insert.php" class="btn btn-primary mb-3"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a>
-            <tr style="text-align: center;">
+        <!-- <table class="table table-bordered border-primary"> -->
+        <table class="table table-bordered">
+            <h5>DATA USER</h5>
+            <a href=" insert.php" class="btn btn-primary mb-3" style="background-color: #0055ff"><i class="fa-solid fa-user-plus" style="color: #ffffff;"></i></a>
+            <thead class="table" style="text-align: center; background-color:#0055ff; color:#ffffff">
                 <th>ID</th>
                 <th>Name</th>
                 <th>Email</th>
                 <th>Password</th>
                 <th>Action</th>
-            </tr>
+            </thead>
+            <!-- // PHP -->
             <?php
             include("connection.php");
             $sql = "SELECT * FROM form_tb";
@@ -36,7 +45,8 @@
             $i = 1;
             while ($row = mysqli_fetch_assoc($result)) :
             ?>
-                <tr>
+                <!-- // END PHP -->
+                <tbody>
                     <td style="text-align: center;"><?php echo $i; ?></td>
                     <td><?php echo $row["name"]; ?></td>
                     <td><?php echo $row["email"]; ?></td>
@@ -49,11 +59,12 @@
                             </div>
                         </div>
                     </td>
-                </tr>
-
+                </tbody>
+                <!-- // PHP -->
             <?php $i++;
             endwhile;
             ?>
+            <!-- // END PHP -->
         </table>
     </div>
 
